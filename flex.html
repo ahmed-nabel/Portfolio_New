@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        h1{
+            text-align: center;
+        }
+        .container{
+            display: flex;
+            border: 2px solid black;
+            height: 500px;
+            flex-flow: row wrap;
+            align-content: center;
+            width: 800px;
+        }
+        .flex-item{
+            height: 30px;
+        }
+        
+        .container .blue{
+            background-color: blue;
+            align-self: flex-start;
+        }
+        .green{
+            background-color: green;
+           
+            align-self: flex-end;
+        }
+        .red{
+            background-color: red;
+        }
+        button{
+            cursor:grab;
+        }
+        .selectors-container{
+            margin-block: 50px;
+            border: 1px solid black;
+        }
+        .clear-fix:after{
+            content: "";
+            display: table;
+            clear: both;
+        }
+        /* .grand-parent > span:first-of-type {
+            color: red;
+        } */
+        .grand-parent + span{
+            color: rgb(64, 143, 44);
+        }
+         .grand-parent ~ span{
+            color: rgb(64, 143, 44);
+        }
+        .grand-parent{
+            width:500px;
+            border: 1px solid blue;
+            float: left;
+        }
+        .parent2{
+            width: 500px;
+            border: 1px solid rgb(255, 166, 0);
+            float: right;
+        }
+        .footer{
+            clear: both;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Css Flex</h1>
+<h1>I am a <span id="typing-text"></span></h1>
+
+    <div class="container">
+        <div class="flex-item blue">
+            Item 1
+        </div>
+        <div class="flex-item green">
+            Item 2
+        </div>
+        <div class="flex-item red">
+            Item 3
+        </div> 
+        <div class="flex-item blue">
+            Item 4
+        </div>
+        <div class="flex-item green">
+            Item 5
+        </div>
+        <div class="flex-item red">
+            Item 6
+        </div>                
+        <!-- <button type="button" ><span>click me</span></button> -->
+    </div>
+
+    <div class="selectors-container clear-fix">
+        <div class="grand-parent">
+            <h2>Hello again</h2>
+            <span>hi</span>
+            <span>my name is ahmed</span>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, optio.</p>
+            <div class="parent">
+                <h2>ahmed nabel</h2>
+                <span>hi man</span>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, omnis!</p>
+            </div>
+        </div>
+        <span>next sibiling</span>
+        <span>again hi</span>
+        <div class="parent2">
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas, sed.</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas, sed.</p>
+        </div>
+        <div class="footer">
+            iam a footer
+        </div>
+    </div>
+
+        <script>
+  const roles = ["Frontend Developer", "Backend Developer", "Full Stack Developer"];
+  let index = 0;
+  let charIndex = 0;
+  const typingText = document.getElementById("typing-text");
+
+  function type() {
+    if (charIndex < roles[index].length) {
+      typingText.textContent += roles[index].charAt(charIndex);
+      charIndex++;
+      setTimeout(type, 100);
+    } else {
+      setTimeout(erase, 2000);
+    }
+  }
+
+  function erase() {
+    if (charIndex > 0) {
+      typingText.textContent = roles[index].substring(0, charIndex - 1);
+      charIndex--;
+      setTimeout(erase, 50);
+    } else {
+      index = (index + 1) % roles.length;
+      setTimeout(type, 500);
+    }
+  }
+
+  // Start the typing effect
+  document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(type, 500);
+  });
+</script>
+
+</body>
+</html>

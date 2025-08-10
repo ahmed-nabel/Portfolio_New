@@ -1,0 +1,14 @@
+:root{
+    /* like black */
+    --main-color: 216, 49%, 15%;
+    /*like purple  */
+    --sec-color: 272, 100%, 62%;
+    /* white  */
+    --last-color: 0, 0%, 100%;
+    /* like grey */
+    --section-color: 220, 11%, 95%;
+    /* icon */
+    --icon-color: 201, 100%, 35%;
+
+
+}
